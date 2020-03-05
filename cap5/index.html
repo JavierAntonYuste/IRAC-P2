@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Very simple WebRTC application with a Node.js signalling server</title>
+</head>
+<body>
+	<h1> ¡Bienvenidos al servicio de videollamada del grupo 3!</h3>
+
+<div id='mainDiv'>
+
+	<table border="1" width="100%">
+		<tr>
+			<th>
+				Local video
+			</th>
+			<th>
+				'Remote' video
+			</th>
+		</tr>
+		<tr>
+			<td>
+				<video id="localVideo" muted autoplay></video>
+			</td>
+			<td>
+				<video id="remoteVideo" autoplay></video>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<textarea rows="4" cols="60" id="dataChannelSend" disabled
+			placeholder="This will be enabled once the data channel is up..."></textarea>
+			</td>
+			<td align="center">
+				<textarea rows="4" cols="60" id="dataChannelReceive" disabled></textarea>
+			</td>
+		</tr>
+		<tr>
+			<td align="center">
+				<button id="sendButton" disabled>Send</button>
+			</td>
+			<td></td>
+		</tr>
+	</table>
+</div>
+
+<script src='/socket.io/socket.io.js'></script>
+<script src='js/completeNodeClientWithDataChannel.js'></script>
+
+</body>
+</html>
