@@ -77,6 +77,7 @@ function trace(text) {
 /////////////////////////////////////////////
 // Let's get started: prompt user for input (room name)
 var room = prompt('Enter room name:');
+var user=prompt('Enter your name:');
 
 var urlServer = location.origin;
 console.log("socket.io client connecting to server ", urlServer );
@@ -260,7 +261,7 @@ function gotReceiveChannel(event) {
 
 function handleMessage(event) {
   trace('Received message: ' + event.data);
-  receiveTextarea.value += event.data + '\n';
+  receiveTextarea.value += user+": " + event.data + '\n';
 }
 
 function handleSendChannelStateChange() {
