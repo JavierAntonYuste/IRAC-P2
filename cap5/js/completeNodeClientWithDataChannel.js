@@ -77,7 +77,7 @@ function trace(text) {
 /////////////////////////////////////////////
 // Let's get started: prompt user for input (room name)
 var room = prompt('Enter room name:');
-var username=prompt('Enter your name:');
+var username = prompt('Enter your name:');
 
 var urlServer = location.origin;
 console.log("socket.io client connecting to server ", urlServer );
@@ -245,9 +245,12 @@ function createPeerConnection() {
 function sendData() {
   receiveTextarea.value += "You: " + sendTextarea.value + '\n';
   var data = username+": "+sendTextarea.value;
+
+  console.log("Sending message: " + sendTextarea.value);
+
   if(isInitiator) sendChannel.send(data);
   else receiveChannel.send(data);
-  trace('Sent data: ' + data);
+  trace('Sent data: ' + sendTextarea.value);
   sendTextarea.value="";
 }
 
@@ -263,6 +266,7 @@ function gotReceiveChannel(event) {
 
 function handleMessage(event) {
   trace('Received message: ' + event.data);
+  console.log('Received message: ' + event.data);
 
   receiveTextarea.value += event.data + '\n';
 }
